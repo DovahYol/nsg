@@ -89,7 +89,8 @@ int main(int argc, char** argv) {
 	auto e = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> diff = e - s;
 	std::cout << "search time: " << diff.count() << "\n";
-	std::cout << "avarage latency: " << diff.count() / query_num << std::endl;
+	std::cout << "avarage latency(ms): " << diff.count() * 1000 / query_num << std::endl;
+	std::cout << "qps: " << query_num / (diff.count() * 1000000) << std::endl;
 
 	save_result(argv[6], res);
 
