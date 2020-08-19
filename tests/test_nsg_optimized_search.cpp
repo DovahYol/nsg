@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
 		index.SearchWithOptGraph(query_load + i * dim, K, paras, res[i].data());
 	}
 	auto e = std::chrono::high_resolution_clock::now();
-	double diff = (std::chrono::duration_cast<std::chrono::microseconds>(e - s).count() * 1.0) / 1000.0;
+	double diff = std::chrono::duration_cast<std::chrono::milliseconds>(e - s).count() * 1.0;
 	std::cout << "search time(ms): " << diff << std::endl;
 	std::cout << "avarage latency(ms): " << diff / query_num << std::endl;
 	std::cout << "qps: " << query_num * 1000 / diff << std::endl;
